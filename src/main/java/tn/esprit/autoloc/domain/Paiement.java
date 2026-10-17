@@ -24,5 +24,8 @@ public class Paiement {
     private Date datePaiement;
     @Enumerated(EnumType.STRING)
     private ModePaiement modePaiement;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Contrat contrat;
 }
+
 

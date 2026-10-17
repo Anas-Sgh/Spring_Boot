@@ -23,4 +23,6 @@ public class Maintenance {
     private Date dateFin;
     @Column(nullable = false)
     private String description;
+    @ManyToOne
+    private Vehicule vehicule;
 }

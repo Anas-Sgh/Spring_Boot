@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,4 +24,10 @@ public class Reservation {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private StatutReservation statut;
+    @ManyToOne
+    private Vehicule vehicule;
+    @ManyToOne
+    private Client client;
+    @OneToOne (fetch = FetchType.LAZY)
+    private Contrat contrat;
 }

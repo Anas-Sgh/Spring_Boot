@@ -1,11 +1,10 @@
 package tn.esprit.autoloc.service;
 
 import tn.esprit.autoloc.domain.Vehicule;
-import tn.esprit.autoloc.repository.VehiculeRepository;
 
 import java.util.List;
 
-public interface VehiculeService extends VehiculeRepository {
+public interface VehiculeService {
     Vehicule getById(long id);
     List<Vehicule> getAll();
     Boolean update(Vehicule v);

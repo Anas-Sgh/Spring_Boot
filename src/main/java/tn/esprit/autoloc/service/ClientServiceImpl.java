@@ -1,25 +1,19 @@
 package tn.esprit.autoloc.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.domain.Client;
 import tn.esprit.autoloc.repository.ClientRepository;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
 
 @Service
-public class ClientServiceImpl implements IclientService{
+public class ClientServiceImpl implements IclientService {
 
-    @Autowired
-    private ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
 
+    public ClientServiceImpl(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
+    }
 
     @Override
     public Client getById(long id) {
@@ -40,161 +34,11 @@ public class ClientServiceImpl implements IclientService{
     @Override
     public Boolean remove(Client c) {
         clientRepository.delete(c);
-        return null;
+        return true;
     }
 
     @Override
     public Client addcli(Client c) {
         return clientRepository.save(c);
-    }
-
-    @Override
-    public void flush() {
-
-    }
-
-    @Override
-    public <S extends Client> S saveAndFlush(S entity) {
-        return null;
-    }
-
-    @Override
-    public <S extends Client> List<S> saveAllAndFlush(Iterable<S> entities) {
-        return List.of();
-    }
-
-    @Override
-    public void deleteAllInBatch(Iterable<Client> entities) {
-
-    }
-
-    @Override
-    public void deleteAllByIdInBatch(Iterable<Long> longs) {
-
-    }
-
-    @Override
-    public void deleteAllInBatch() {
-
-    }
-
-    @Override
-    public Client getOne(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public Client getById(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public Client getReferenceById(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public <S extends Client> Optional<S> findOne(Example<S> example) {
-        return Optional.empty();
-    }
-
-    @Override
-    public <S extends Client> List<S> findAll(Example<S> example) {
-        return List.of();
-    }
-
-    @Override
-    public <S extends Client> List<S> findAll(Example<S> example, Sort sort) {
-        return List.of();
-    }
-
-    @Override
-    public <S extends Client> Page<S> findAll(Example<S> example, Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public <S extends Client> long count(Example<S> example) {
-        return 0;
-    }
-
-    @Override
-    public <S extends Client> boolean exists(Example<S> example) {
-        return false;
-    }
-
-    @Override
-    public <S extends Client, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction) {
-        return null;
-    }
-
-    @Override
-    public <S extends Client> S save(S entity) {
-        return null;
-    }
-
-    @Override
-    public <S extends Client> List<S> saveAll(Iterable<S> entities) {
-        return List.of();
-    }
-
-    @Override
-    public Optional<Client> findById(Long aLong) {
-        return Optional.empty();
-    }
-
-    @Override
-    public boolean existsById(Long aLong) {
-        return false;
-    }
-
-    @Override
-    public List<Client> findAll() {
-        return List.of();
-    }
-
-    @Override
-    public List<Client> findAllById(Iterable<Long> longs) {
-        return List.of();
-    }
-
-    @Override
-    public long count() {
-        return 0;
-    }
-
-    @Override
-    public void deleteById(Long aLong) {
-
-    }
-
-    @Override
-    public void delete(Client entity) {
-
-    }
-
-    @Override
-    public void deleteAllById(Iterable<? extends Long> longs) {
-
-    }
-
-    @Override
-    public void deleteAll(Iterable<? extends Client> entities) {
-
-    }
-
-    @Override
-    public void deleteAll() {
-
-    }
-
-    @Override
-    public List<Client> findAll(Sort sort) {
-        return List.of();
-    }
-
-    @Override
-    public Page<Client> findAll(Pageable pageable) {
-        return null;
     }
 }

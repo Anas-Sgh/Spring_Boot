@@ -1,11 +1,10 @@
 package tn.esprit.autoloc.service;
 
 import tn.esprit.autoloc.domain.Maintenance;
-import tn.esprit.autoloc.repository.MaintenanceRepository;
 
 import java.util.List;
 
-public interface ImaintenanceService extends MaintenanceRepository {
+public interface ImaintenanceService {
     Maintenance getById(long id);
     List<Maintenance> getAll();
     Boolean update(Maintenance m);

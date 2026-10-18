@@ -1,11 +1,10 @@
 package tn.esprit.autoloc.service;
 
 import tn.esprit.autoloc.domain.Reservation;
-import tn.esprit.autoloc.repository.ReservationRepository;
 
 import java.util.List;
 
-public interface IreservationService extends ReservationRepository {
+public interface IreservationService {
     Reservation getById(long id);
     List<Reservation> getAll();
     Boolean update(Reservation r);

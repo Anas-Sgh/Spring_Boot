@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,5 +27,5 @@ public class Contrat {
     @OneToOne
     private Reservation reservation;
     @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Paiement> paiements = new ArrayList<>();
+    private List<Paiement> paiements;
 }
